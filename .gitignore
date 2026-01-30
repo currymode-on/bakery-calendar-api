@@ -1,0 +1,73 @@
+# ======================
+# Node / package managers
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ======================
+# Build output
+# ======================
+dist/
+dist-ssr/
+build/
+
+# ======================
+# Environment variables
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# Vite
+# ======================
+.vite/
+
+# ======================
+# Vue / cache
+# ======================
+.cache/
+.eslintcache
+
+# ======================
+# IDE / Editors
+# ======================
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+
+# ======================
+# Tests / coverage
+# ======================
+coverage/
+.nyc_output/
+
+# ======================
+# Temporary files
+# ======================
+tmp/
+temp/
+
+# ======================
+# Optional: lock only one
+# ======================
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml
