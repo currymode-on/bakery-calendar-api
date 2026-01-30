@@ -1,7 +1,15 @@
 export default async function handler(req, res) {
-    const { method, query, body } = req
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end()
+    }
+
+    const { method, query, body } = req
     const CAL_API_KEY = process.env.CAL_API_KEY
+
     if (!CAL_API_KEY) {
         return res.status(500).json({ error: 'Missing CAL_API_KEY' })
     }
@@ -11,16 +19,16 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing endpoint param' })
     }
 
-    const url = `https://api.cal.com/v2/${endpoint}`
+    const url = `https://api.cal.com/v1/${endpoint}`
 
     try {
         const response = await fetch(url, {
             method,
             headers: {
+                'Content-Type': 'application/json',
                 Authorization: `Bearer ${CAL_API_KEY}`,
-                'Content-Type': 'application/json'
             },
-            body: method === 'GET' ? undefined : JSON.stringify(body)
+            body: method !== 'GET' ? JSON.stringify(body) : undefined,
         })
 
         const data = await response.json()
@@ -28,7 +36,7 @@ export default async function handler(req, res) {
     } catch (e) {
         return res.status(500).json({
             error: 'Proxy error',
-            details: e.message
+            details: e.message,
         })
     }
 }
