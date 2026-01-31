@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing endpoint param' })
     }
 
-    const url = `https://api.cal.com/v2/${endpoint}`
+    const url = `https://api.cal.com${endpoint}`
 
     try {
         const response = await fetch(url, {
