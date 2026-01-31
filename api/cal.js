@@ -24,7 +24,8 @@ export default async function handler(req, res) {
             method: req.method,
             headers: {
                 'Content-Type': 'application/json',
-                'X-Cal-Api-Key': CAL_API_KEY
+                'X-Cal-Api-Key': CAL_API_KEY,
+                'cal-api-version': '2024-09-04'
             },
             body: req.method !== 'GET' ? JSON.stringify(req.body) : undefined
         })
