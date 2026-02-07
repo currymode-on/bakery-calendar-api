@@ -15,7 +15,7 @@ export default function handler(req, res) {
         eventTypeSlug: process.env.CAL_EVENT_TYPE_SLUG || null,
         username: process.env.CAL_USERNAME || null,
 
-        defaultDuration: 60,
+        defaultDuration: process.env.CAL_DEFAULT_DURATION || null,
         timeZone: "Europe/Kiev",
     });
 }
