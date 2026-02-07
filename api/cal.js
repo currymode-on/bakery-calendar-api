@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     const { endpoint, apiVersion, ...query } = req.query;
     if (!endpoint) {
-        return res.status(400).json({ error: "Missing endpoint param" });
+        return res.status(400).json({ error: "Missing endpoint param " });
     }
 
     const url = new URL(`https://api.cal.com/v2${endpoint}`);
