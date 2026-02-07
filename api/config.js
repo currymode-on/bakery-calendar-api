@@ -16,6 +16,6 @@ export default function handler(req, res) {
         username: process.env.CAL_USERNAME || null,
 
         defaultDuration: process.env.CAL_DEFAULT_DURATION || null,
-        timeZone: "Europe/Kiev",
+        timeZone: "Europe/London",
     });
 }
